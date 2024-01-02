@@ -473,13 +473,17 @@ Members have two distinct peak demand periods: 7-9 AM and 5-6 PM, the last of wh
 Here's an organized list of the recommendations and additional data:
 
 ### Recommendations
-
+#### Recommendation 1
 a. Offer seasonal passes for riders who don’t want to bike during the winter.
 
 
 b. Introduce a member-only rewards program based on trip duration to incentivize casual riders to sign up as members and be eligible for the rewards.
 
 c. Offer discounted pricing during non-busy hours so that casual riders might choose to use bikes more often and level out demand over the day.
+
+#### Recommendation 2 : Campaign for Saving the Earth
+
+Cyclistic can boost its appeal by promoting a campaign focused on environmental protection and healthy living. By using social media and bike-share stations, the company can raise awareness of the benefits of bicycles, reduce gas emissions and encourage sustainable living. Initiatives such as litter-picking events and tree-planting linked to Cyclistic bikes can be set up, encouraging participants to contribute via questionnaires to win eco-friendly prizes, potentially increasing subscriptions.
 
 
 ### Additional Data for Analysis
