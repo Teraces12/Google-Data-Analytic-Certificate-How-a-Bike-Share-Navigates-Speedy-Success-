@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 As a part of the [Google Data Analytics Professional Certificat](https://www.coursera.org/professional-certificates/google-data-analytics) couse , I was given the opportunity to conduct a case study on Cyclistic to analyze the data and provide insights on the users’ behavior. The aim of this case study is to provide actionable insights for the company to consider in their marketing strategy. In order to improve its marketing strategy and drive future growth, the bike share company, Cyclistic, is based in Chicago and offers services to its users. The company is interested in understanding the behavior of its users while using the services. In this project, I will follow the steps of the data analysis process: ask, prepare, process, analyze, and share.
 <p align="center">
-  <img src="Screenshot 2024-01-01 005215.png"></b><br>
+  <img src="Screenshot 2024-01-02 140303.png">
 </p>
 ## Scenario
 
@@ -76,7 +76,7 @@ f) The overarching goal is to increase profitability and drive future growth.
 
 ### Data location
 
--The data used for this analysis was obtained from Motivate International Inc. and can be accessed via the link provided [link](https://divvy-tripdata.s3.amazonaws.com/index.html).
+-The data used for this analysis was obtained from Motivate International Inc. and can be accessed via the link provided [data](https://divvy-tripdata.s3.amazonaws.com/index.html).
 
 -It includes 12 months of historical trip data from Cyclistic, a fictitious bike-share company based in Chicago.
 
@@ -89,11 +89,11 @@ For this project, the utilized data comprises monthly CSV files spanning the pas
 ### Does our data ROCCC? Are there issues with bias or credibility in this data?
 
 Does our data ROCCC(Reliable, Original, Comprehensive, Current and Cited)? 
-Motivate, Inc. collected the data [link](https://divvy-tripdata.s3.amazonaws.com/index.html) for this analysis directly through its management of the Cyclistic Bike Share program for the City of Chicago. The data is complete and consistent, as it includes information on all trips made by users and is not a simple sample. They are also up-to-date, as they are published monthly by the City of Chicago. The data is made available to the public by the City of Chicago.
+Motivate, Inc. collected the  [data](https://divvy-tripdata.s3.amazonaws.com/index.html) for this analysis directly through its management of the Cyclistic Bike Share program for the City of Chicago. The data is complete and consistent, as it includes information on all trips made by users and is not a simple sample. They are also up-to-date, as they are published monthly by the City of Chicago. The data is made available to the public by the City of Chicago.
 
 ### Licensing, privacy, security, and accessibility 
 
-1-The data used for this analysis is released under a specific license [link](https://ride.divvybikes.com/data-license-agreement) and is made available for use in this analysis.
+1-The data used for this analysis is released under a [specific license](https://ride.divvybikes.com/data-license-agreement) and is made available for use in this analysis.
 
 2-The data has had all identifying information removed to protect the privacy of users.
 
@@ -197,15 +197,24 @@ Quick view using head() and summary()
 ```{r}
 head(all_trips)
 ```
-
+<p align="center">
+  <img src="fig2.png">
+</p>
 ```{r}
 summary(all_trips)
 ```
+<p align="center">
+  <img src="fig3.png">
+</p>
 ###Inspect column names
 
 ```{r}
 colnames(all_trips)  #List of column names
 ```
+<p align="center">
+  <img src="fig4.png">
+</p>
+
 After inspection, there are is an extra column “… 1” which is not needed since it only contains a list of numbers which correspond to the row number - this was created when the the 12-months worth of data was created. This will need to be removed in the cleaning process.
 
 Check the total number of rows is **5709367** after combining the 12-month data.
@@ -281,6 +290,9 @@ all_trips_v2 %>%
   coord_polar("y", start=0) +
   theme_void()
 ```
+<p align="center">
+  <img src="fig5.png">
+</p>
 Looking at this pie chart, it shows that members take significantly more trips than casual riders.
 
 ###Comparison between members and casual riders
@@ -288,26 +300,38 @@ Looking at this pie chart, it shows that members take significantly more trips t
 ```{r}
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = mean)
 ```
+<p align="center">
+  <img src="fig6.png">
+</p>
+
 ### Median 
 ```{r}
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = median)
 ```
+<p align="center">
+  <img src="fig7.png">
+</p>
 
 ### Max
 ```{r}
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = max)
 ```
+<p align="center">
+  <img src="fig8.png">
+</p>
 
 ### Min
 ```{r}
 aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = min)
 ```
+<p align="center">
+  <img src="fig9.png">
+</p>
 In contrast to casual riders, member riders’ make shorter trips. This indicates that, while members do ride the bikes more frequently, casual riders tend to spend more time out on the road.
 
 ```{r}
 all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 ```
-
 ## Customer Type vs. Day of the week
 ### Average
 ```{r}
@@ -319,6 +343,9 @@ all_trips_v2 %>%
   geom_col(width=0.5, position = position_dodge(width=0.5)) + 
   labs(title ="Average trip duration by customer type Vs. Day of the week")
 ```
+<p align="center">
+  <img src="fig10.png">
+</p>
 A member’s typical ride lasts less than half as long as that of a casual rider. It’s also interesting to see that while weekend rides tend to be longer for casual riders, regular riders tend to keep their average ride length fairly constant every day of the week. Please take note that this does not imply that casual riders necessarily cover greater distances.
 
 ### Count
@@ -334,6 +361,9 @@ all_trips_v2 %>%
   geom_col(width=0.5, position = position_dodge(width=0.5)) +
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE))
 ```
+<p align="center">
+  <img src="fig12.png">
+</p>
 Based on the data presented above, it appears that Saturdays and Sundays see the highest volume of casual riders, while weekdays are busier for members. This implies that the bikes may be primarily used for non-leisure purposes by the annual members.
 
 ##Customer Type vs. Month
@@ -347,8 +377,12 @@ all_trips_v2 %>%
   geom_col(width=0.5, position = position_dodge(width=0.5)) + 
   labs(title ="Average trip duration by customer type Vs. Month")
 ```
+<p align="center">
+  <img src="fig13.png">
+</p>
 Over the course of a year, the typical ride time for a club member is between 10-15 minutes. There is a clear pattern when looking at casual riders, whose average trip duration varies from about 25 minutes at the end of the year to more than 35 minutes at the beginning of the year.
 ### Count 
+
 ```{r}
 all_trips_v2 %>%  
   drop_na(member_casual) %>%
@@ -361,8 +395,10 @@ all_trips_v2 %>%
   geom_col(width=0.5, position = position_dodge(width=0.5)) +
   scale_y_continuous(labels = function(x) format(x, scientific = FALSE))
 ```
+<p align="center">
+  <img src="fig12.png">
+</p>
 According to the graph, the busiest months of the year for members and casual riders are June, July, and August. This could be attributed to an external factor, like cold weather, that might have hindered with customer needs. Members, however, take significantly more rides than casual riders do during the rest of the year, including the winter months.
-
 
 ##Rideable type
 
@@ -381,6 +417,9 @@ ride_type + scale_fill_brewer(palette = "Set1", name = " ",
                                          "Electric bike")) +
   scale_x_discrete(labels = c("Casual", "Member"))
 ```
+<p align="center">
+  <img src="fig14a.png">
+</p>
 ###Observations:
 
 1. Only casual riders use docked bikes
@@ -404,6 +443,9 @@ all_trips_v2 %>%
   theme(axis.text.x = element_text(angle = 90)) +
   labs(title ="Demand over 24 hours of a day", x = "Time of the day")
 ```
+<p align="center">
+  <img src="fig14.png">
+</p>
 
 Members have two distinct peak demand periods: 7-9 AM and 5-6 PM, the last of which overlaps with the peak demand periods of casual riders. It’s possible to speculate that, given the high levels of interest shown before and after business hours, the majority of members are people on their way to or from work, but this assumption needs more data to support it.
 
@@ -453,6 +495,8 @@ c. Students: target students with tailored promotions or services, considering t
 d. Pricing details for members and casual riders: analyze pricing details to optimize the cost structure for casual riders or provide targeted discounts without compromising profit margins.
 
 e . Address/neighborhood details of members: investigate if there are any location-specific parameters that encourage membership and use this information for targeted marketing or service improvements.
-
+<p align="center">
+  <img src="Screenshot 2024-01-02 140214.png">
+</p>
 --------------------------------------------END-------------------------------------------------------------
 
