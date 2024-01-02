@@ -9,7 +9,9 @@ output:
   pdf_document:
     toc: yes
 ---
-
+<p align="center">
+  <img src="Dashboard.png"></b><br>
+</p>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -17,8 +19,10 @@ knitr::opts_chunk$set(echo = TRUE)
 # Case Study: How Does a Bike-Share Navigate Speedy Success?
 ## Introduction
 
-As a part of the Google Data Analytics certification course [link](https://www.coursera.org/professional-certificates/google-data-analytics), I was given the opportunity to conduct a case study on Cyclistic to analyze the data and provide insights on the users’ behavior. The aim of this case study is to provide actionable insights for the company to consider in their marketing strategy. In order to improve its marketing strategy and drive future growth, the bike share company, Cyclistic, is based in Chicago and offers services to its users. The company is interested in understanding the behavior of its users while using the services. In this project, I will follow the steps of the data analysis process: ask, prepare, process, analyze, and share.
-
+As a part of the [Google Data Analytics Professional Certificat](https://www.coursera.org/professional-certificates/google-data-analytics) couse , I was given the opportunity to conduct a case study on Cyclistic to analyze the data and provide insights on the users’ behavior. The aim of this case study is to provide actionable insights for the company to consider in their marketing strategy. In order to improve its marketing strategy and drive future growth, the bike share company, Cyclistic, is based in Chicago and offers services to its users. The company is interested in understanding the behavior of its users while using the services. In this project, I will follow the steps of the data analysis process: ask, prepare, process, analyze, and share.
+<p align="center">
+  <img src="Screenshot 2024-01-01 005215.png"></b><br>
+</p>
 ## Scenario
 
 Cyclistic operates a fleet of more than 5,800 bicycles, which can be accessed from over 600 docking stations across the city. Bikes can be borrowed from one docking station, ridden, then returned to any docking station. There are also user-friendly bike options, including electric bikes, classic bikes, and docked bikes, making Cyclistic services more inclusive to people.
@@ -183,6 +187,10 @@ all_trips<- dir("Bike", full.names=T )%>% map_df(read.csv)
 ```{r}
 str(all_trips)
 ```
+<p align="center">
+  <img src="fig1.png">
+</p>
+fig1.png
 ### Inspecting data frame
 Quick view using head() and summary()
 
