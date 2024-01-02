@@ -168,8 +168,6 @@ library(ggplot2)
 library(mapview)
 library(dplyr)
 library(anytime)
-library(png)
-library(pander)
 ```
 
 
